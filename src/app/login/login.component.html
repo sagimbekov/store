@@ -1,0 +1,41 @@
+<section class="login">
+  <div class="container">
+    <div class="login-left">
+      <div class="login-top">
+        <h2>Регистрация</h2>
+        <p>Для регистрации введите ваш email адрес и придумайте пароль</p>
+      </div>
+      <div class="login-bottom">
+        <form #form="ngForm" (ngSubmit)="onRegisterForm()">
+          <div class="form-g">
+            <p>Email адрес:</p>
+            <input type="email" name="email" required #email="ngModel" [(ngModel)]="user.email">
+          </div>
+          <div class="form-g">
+            <p>Ваше имя</p>
+            <input type="text" name="fname" required #fname="ngModel" [(ngModel)]="user.first_name">
+          </div>
+          <div class="form-g">
+            <p>Ваша фамилия</p>
+            <input type="text" name="sname" required #sname="ngModel" [(ngModel)]="user.second_name">
+          </div>
+          <div class="form-g">
+            <p>Придумайте пароль</p>
+            <input type="password" name="pass" required #pass="ngModel" [(ngModel)]="user.password">
+          </div>
+
+          <button type="submit">Регистрация</button>
+        </form>
+      </div>
+    </div>
+    <div class="login-right">
+      <img src="assets/img/demo4.jpg" alt="">
+      <p>Зарегистрируйтесь сегодня, и вы сможете:</p>
+      <ol>
+        <li>Покупайте товары в несколько кликов</li>
+        <li>Отслеживайте свои заказы</li>
+        <li>Ведите учет всех ваших покупок</li>
+      </ol>
+    </div>
+  </div>
+</section>
