@@ -64,23 +64,6 @@ section.login {
     margin-top: 20px;
 }
 
-button {
-    border: 1px solid #f5363e;
-    background: transparent;
-    display: block;
-    width: 100%;
-    margin: 20px 0;
-    padding: 10px 0;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #3e3e3e;
-    font-size: 18px;
-}
-
-button:hover {
-    background: #f5363e;
-    color: #fff;
-}
 
 .login-bottoml{
     text-align: center;

@@ -1,6 +1,14 @@
-
-<section class="settings">
-  <div class="container">
-    
-  </div>
+<section class="settings-nav">
+	<div class="container">
+		<ul>
+			<li [routerLink]="['/settings/account']" routerLinkActive="active">Мой аккаунт</li>
+			<li>Мои заказы</li>
+			<li>Избранное</li>
+			<li>Любимые магазины</li>
+			<li>Управление отзывами</li>
+			<li>Настройки</li>
+		</ul>
+	</div>
 </section>
+
+<router-outlet></router-outlet>

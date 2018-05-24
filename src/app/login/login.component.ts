@@ -10,9 +10,9 @@ import {AppletService} from '../services/applet.service';
 export class LoginComponent implements OnInit {
 
 	user = {
-		email: '', password: '', first_name: '', second_name: ''
+		email: '', password: '', first_name: 'Ilyas', second_name: 'Sagimbekov'
 	};
-	showL = false;
+	showL = true;
 	constructor(private route: ActivatedRoute,
 	      		public app: AppletService,
 	      		public router: Router) {

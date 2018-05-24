@@ -1,0 +1,33 @@
+<div class="row">
+	<h1>Профиль</h1>
+
+	<form #form="ngForm" (ngSubmit)="onSaveProfile()">
+		<div class="control-group">
+			<label class="control-label" for="email">Email </label>
+			<div class="controls">
+				<input type="text" readonly="true" name="email" id="email" autocomplete="off"  [(ngModel)]="profile.email">
+			</div>
+		</div>
+	 	<div class="control-group">
+			<label class="control-label" for="first_name">Имя </label>
+			<div class="controls">
+				<input type="text" name="first_name" id="first_name" autocomplete="off"  [(ngModel)]="profile.first_name">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="second_name">Фамилия </label>
+			<div class="controls">
+				<input type="text" name="second_name" id="second_name" autocomplete="off"  [(ngModel)]="profile.second_name">
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label"></label>
+			<div class="controls">
+				<button class="btn" type="submit">Сохранить</button>
+			</div>
+		</div>
+
+	</form>
+</div>

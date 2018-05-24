@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AppletService} from './services/applet.service';
+import {ActivatedRoute, Router, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,14 @@ import {AppletService} from './services/applet.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  	constructor(public app: AppletService) {
+ 	 title = 'app';
+  	constructor(public app: AppletService,
+  				public router: Router) {
+    }
+
+    onLogOut(){
+    	this.app.logout();
+    	this.router.navigate(['/login']);
     }
 
 }

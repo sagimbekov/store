@@ -9,7 +9,8 @@ import {AppletService} from '../services/applet.service';
 })
 export class MainComponent implements OnInit {
 
-  
+ 	Arr = Array; 
+	num:number = 8;
 
   	constructor(private route: ActivatedRoute,
               public app: AppletService) {

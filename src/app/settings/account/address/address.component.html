@@ -1,0 +1,60 @@
+<div class="row">
+	<h1>Добавить адрес доставки</h1>
+
+	<form #form="ngForm" (ngSubmit)="onSaveAddress()">
+	 	<div class="control-group">
+			<label class="control-label" for="address_additional">Страна</label>
+			<div class="controls">
+				<input type="text" name="address_additional" id="address_additional" autocomplete="off"  [(ngModel)]="address.address_additional">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="region">Область</label>
+			<div class="controls">
+				<input type="text" name="region" id="region" autocomplete="off"  [(ngModel)]="address.region">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="zip_code">Почтовый код</label>
+			<div class="controls">
+				<input type="text" name="zip_code" id="zip_code" autocomplete="off"  [(ngModel)]="address.zip_code">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="city">Город</label>
+			<div class="controls">
+				<input type="text" name="city" id="city" autocomplete="off"  [(ngModel)]="address.city">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="address">Адрес (дом, улица)</label>
+			<div class="controls">
+				<input type="text" name="address" id="address" autocomplete="off"  [(ngModel)]="address.address">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="mobile_phone">Контактный номер телефона</label>
+			<div class="controls">
+				<input type="text" name="mobile_phone" id="mobile_phone" autocomplete="off"  [(ngModel)]="address.mobile_phone">
+			</div>
+		</div>
+
+		<div class="default">
+			<input type="checkbox" name="default" id="default" autocomplete="off"  [(ngModel)]="address.default">
+			<label for="default">Установиь по умолчанию</label>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label"></label>
+			<div class="controls">
+				<button class="btn" type="submit">Сохранить</button>
+			</div>
+		</div>
+
+	</form>
+</div>

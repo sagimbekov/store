@@ -70,7 +70,7 @@ ul.left-nav li {
 .banner-btn {
     position: absolute;
     left: 7%;
-    bottom: 5%;
+    bottom: 10%;
     border: 1px solid #7b7b7b;
     padding: 20px 30px;
     font-size: 16px;
@@ -145,4 +145,78 @@ section.body-c li:hover{
     display: inline-block;
     vertical-align: middle;
     margin-left: 5px;
+}
+
+.bb-d{
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-d{
+    min-height: 230px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.banner1{
+    width: 66%;
+    float: left;
+}
+
+.banner1 .banner-btn{
+    left: inherit;
+    right: 5%;
+}
+
+.banner2{
+    width: 32%;
+    float: right;
+}
+
+.p-c-body {
+    position: relative;
+    overflow: hidden;
+}
+
+.pp-ban {
+    float: left;
+    width: 32%;
+}
+
+.pp-ban img{
+    border-radius: 5px;
+}
+
+.p-c-products {
+    float: right;
+    width: 67%;
+}
+
+.p-c-products .item {
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px 30px;
+    width: 22%;
+    margin-left: 3%;
+    margin-bottom: 3%;
+    cursor: pointer;
+    float: right;
+}
+
+
+.p-c-products .item p{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.p-c-products .item img{
+    max-width: 100%;
+}
+
+.product-category h1{
+    font-size: 30px;
+    color: #3e3e3e;
+    margin-top: 0;
 }

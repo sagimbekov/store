@@ -179,6 +179,11 @@ a {
   -webkit-text-decoration-skip: objects; /* 2 */
 }
 
+input:read-only {
+    background: #fafafa;
+    opacity: 0.6;
+}
+
 /**
  * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -322,6 +327,26 @@ textarea {
   margin: 0; /* 2 */
   font-family: 'Montserrat', sans-serif;
 }
+
+button {
+    border: 1px solid #888888;
+    background: transparent;
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #3e3e3e;
+    font-size: 18px;
+}
+
+button:hover {
+    background: #f5363e;
+    color: #fff;
+    border-color: #f5363e; 
+}
+
 
 /**
  * Show the overflow in IE.
