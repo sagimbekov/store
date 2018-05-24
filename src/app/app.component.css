@@ -1,6 +1,6 @@
 section.header {
     background: #f2f2f2;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .header-top.row {
@@ -53,6 +53,7 @@ section.header {
     position: relative;
     z-index: 13;
     padding-left: 20px;
+    padding-top: 10px;  
 }
 
 .header-middle {
@@ -236,6 +237,8 @@ section.body-c li:hover{
 .login-register {
     float: right;
     cursor: pointer;
+    padding-bottom: 20px;
+    overflow: hidden;
 }
 
 .login-register p {
@@ -292,4 +295,68 @@ hr{
     font-size: 16px;
     color: #1c1c1c;
     font-weight: 700;
+}
+
+.my-acc {
+    top: 100%;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    width: 260px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #656565;
+    box-shadow: 2px 2px 2px #ccc;
+    opacity: 0;
+    z-index: -9;
+}
+
+.login-register {
+    position: relative;
+}
+
+.my-acc li {
+    padding: 15px 10px;
+    background: #f2f2f2;
+}
+
+.my-acc li:first-child {
+    background:#fff;
+    font-weight:600;
+}
+
+.my-acc li:hover {
+    color: #f5363e;
+}
+
+.login-register:hover .my-acc {
+    opacity: 1;
+    z-index: 99;
+    overflow: visible;
+}
+
+.login-register:hover {
+    overflow: visible;
+}
+
+.my-acc:before {
+    content: '';
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-bottom: 15px solid #fff;
+    position: absolute;
+    top: -15px;
+    right: 50px;
+    z-index: 99;
+}
+
+.my-acc:after {
+    content: '';
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-bottom: 15px solid #cccccc;
+    position: absolute;
+    top: -16px;
+    z-index: 98;
+    right: 50px;
 }

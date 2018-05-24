@@ -12,9 +12,10 @@ export class LoginComponent implements OnInit {
 	user = {
 		email: '', password: '', first_name: '', second_name: ''
 	};
-
+	showL = false;
 	constructor(private route: ActivatedRoute,
-	      		public app: AppletService) {
+	      		public app: AppletService,
+	      		public router: Router) {
 	}
 
 	ngOnInit() {
@@ -28,5 +29,11 @@ export class LoginComponent implements OnInit {
 	      
   	}
 
-
+  	onLoginForm(){
+  		this.app.authenticate(this.user).subscribe(res => {
+  			if(res.data.token){
+  				this.router.navigate(['/settings']);
+  			}
+  		})
+  	}
 }

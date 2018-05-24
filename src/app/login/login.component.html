@@ -1,6 +1,6 @@
 <section class="login">
   <div class="container">
-    <div class="login-left">
+    <div class="login-left" *ngIf="!showL">
       <div class="login-top">
         <h2>Регистрация</h2>
         <p>Для регистрации введите ваш email адрес и придумайте пароль</p>
@@ -12,19 +12,33 @@
             <input type="email" name="email" required #email="ngModel" [(ngModel)]="user.email">
           </div>
           <div class="form-g">
-            <p>Ваше имя</p>
-            <input type="text" name="fname" required #fname="ngModel" [(ngModel)]="user.first_name">
+            <p>Придумайте пароль</p>
+            <input type="password" name="pass" required #pass="ngModel" [(ngModel)]="user.password">
           </div>
+
+          <button type="submit">Регистрация</button>
+          <p class="login-bottoml">Уже зарегистрированы? <a (click)="showL = true">Войти</a></p>
+        </form>
+      </div>
+    </div>
+    <div class="login-left" *ngIf="showL">
+      <div class="login-top">
+        <h2>Вход</h2>
+        <p>Для входа в ваш аккаунт введите <br>логин и пароль</p>
+      </div>
+      <div class="login-bottom">
+        <form #form="ngForm" (ngSubmit)="onLoginForm()">
           <div class="form-g">
-            <p>Ваша фамилия</p>
-            <input type="text" name="sname" required #sname="ngModel" [(ngModel)]="user.second_name">
+            <p>Имя пользователя или Email адрес:</p>
+            <input type="email" name="email" required #email="ngModel" [(ngModel)]="user.email">
           </div>
           <div class="form-g">
             <p>Придумайте пароль</p>
             <input type="password" name="pass" required #pass="ngModel" [(ngModel)]="user.password">
           </div>
 
-          <button type="submit">Регистрация</button>
+          <button type="submit">Войти</button>
+          <p class="login-bottoml"><a (click)="showL = false">Зарегистрироваться!</a></p>
         </form>
       </div>
     </div>

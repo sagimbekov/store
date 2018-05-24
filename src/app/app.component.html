@@ -30,9 +30,20 @@
           </a>
           <span class="cart-number" id="nav-cart-num">(10)</span>
         </div>
-        <div class="login-register" [routerLink]="['/login']">
+        <div class="login-register" [routerLink]="['/login']" *ngIf="!this.app.checkAuth()">
           <img src="assets/img/man.png" alt="">
           <p><b>Войти</b> или Регистрация <br><span class="arrow">Мой аккаунт</span></p>
+        </div>
+        <div class="login-register" *ngIf="this.app.checkAuth()">
+          <img src="assets/img/man.png" alt="">
+          <p><b>Привет, {{this.app.getUser().first_name}}</b> <br><span class="arrow">Мой аккаунт</span></p>
+
+          <div class="my-acc">
+            <ul>
+              <li (click)="this.app.logout()">Выйти</li>
+              <li [routerLink]="['/settings']">Личный кабинет</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="header-middle">

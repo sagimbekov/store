@@ -16,19 +16,66 @@ export class AppletService {
               	private httpClient: HttpClient) {
   	}
 
-  	register(user): Observable<any> {
+  	register(user: any): Observable<any> {
 	    const headers = new Headers();
     	headers.append('Content-Type', 'application/json');
 	    return this.http
-	      	.post(this.API_URL+'/cabinet/profile/', {user}, 
+	      	.post(this.API_URL+'/cabinet/profile/', {email:user.email , password:user.password , first_name:user.first_name , second_name:user.second_name }, 
 	        	{headers: headers})
-	      	.map((res: Response) => {
-	        	return res.json();
+	      	.map(res => {
+	      		const resp = res.json();
+	        	if (resp.data.token && resp.data.user) {
+		          window.localStorage.setItem('auth_key', resp.data.token);
+		          window.localStorage.setItem('user', JSON.stringify(resp.data.user));
+		        }
+		        return resp;
 	      	})
 	      	.catch(this.handleError);
 	}
 
- 
+	authenticate(user: any): Observable<any> {
+	    const headers = new Headers();
+    	headers.append('Content-Type', 'application/json');
+	    return this.http
+	      	.post(this.API_URL+'/cabinet/authenticate/', {username:user.email , password:user.password }, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		const resp = res.json();
+	        	if (resp.data.token && resp.data.user) {
+		          window.localStorage.setItem('auth_key', resp.data.token);
+		          window.localStorage.setItem('user', JSON.stringify(resp.data.user));
+		        }
+		        return resp;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	checkAuth() {
+	    return window.localStorage.getItem('auth_key') && window.localStorage.getItem('user');
+	}
+
+	getUser(){
+		const parsedUser = JSON.parse(window.localStorage.getItem('user'));
+	    if (parsedUser) {
+	      return parsedUser;
+	    }
+	    return null;
+	}
+
+	logout() {
+	    window.localStorage.removeItem('auth_key');
+	    window.localStorage.removeItem('user');
+	    return true;
+  	}
+
+
+	getToken() {
+	    if (window.localStorage.getItem('auth_key')) {
+	      return window.localStorage.getItem('auth_key');
+	    }
+	    return null;
+  	}
+
 
 	private handleError(error: any): Promise<any> {
 	    return Promise.reject(JSON.parse(error._body));

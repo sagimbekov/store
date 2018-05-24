@@ -11,14 +11,12 @@ export class MainComponent implements OnInit {
 
   
 
-  constructor(private route: ActivatedRoute,
+  	constructor(private route: ActivatedRoute,
               public app: AppletService) {
     }
 
-  ngOnInit() {
-    // this.search("gmail.com");
-  }
-
- 
+	ngOnInit() {
+	// this.search("gmail.com");
+	}
 
 }

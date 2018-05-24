@@ -81,3 +81,12 @@ button:hover {
     background: #f5363e;
     color: #fff;
 }
+
+.login-bottoml{
+    text-align: center;
+}
+
+.login-bottoml a{
+    color: #f5363e;
+    cursor: pointer;
+}

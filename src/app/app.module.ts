@@ -9,11 +9,16 @@ import { HttpModule } from '@angular/http';
 
 import { MainComponent  } from './main/main.component';
 import { LoginComponent  } from './login/login.component';
+import { SettingsComponent  } from './settings/settings.component';
+
+import {AuthGuard} from './guards/auth.guard';
 
 const appRoutes: Routes = [
 	{path: '', component: MainComponent},
 	{path: '', component: MainComponent},
 	{path: 'login', component: LoginComponent},
+  {path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]},
+  {path: '**', component: LoginComponent},
 ];
 
 
@@ -21,7 +26,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MainComponent,
-    LoginComponent
+    LoginComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,7 @@ const appRoutes: Routes = [
       appRoutes,
     ),
   ],
-  providers: [AppletService],
+  providers: [AppletService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
