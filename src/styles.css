@@ -58,7 +58,9 @@ html {
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
-
+img{
+  max-width: 100%;
+}
 /* Sections
    ========================================================================== */
 
@@ -328,20 +330,58 @@ textarea {
   font-family: 'Montserrat', sans-serif;
 }
 
-button {
+button,.btn {
     border: 1px solid #888888;
     background: transparent;
-    display: block;
-    width: 100%;
+    display: inline-block;
+    /*width: 100%;*/
     margin: 20px 0;
-    padding: 10px 0;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     color: #3e3e3e;
     font-size: 18px;
 }
 
-button:hover {
+.p-r{
+  float: right;
+}
+.p-l{
+  float: left;
+}
+
+.t-l{
+  text-align: left;
+}
+
+.t-r{
+  text-align: right;
+}
+
+.t-c{
+  text-align: center;
+}
+
+.d-f{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.d-b{
+    display: block;
+    width: 100%;
+}
+
+.clear{
+  clear: both;
+  position: relative;
+  overflow: hidden;
+}
+
+
+button:hover,
+.btn:hover {
     background: #f5363e;
     color: #fff;
     border-color: #f5363e; 

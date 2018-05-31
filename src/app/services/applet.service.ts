@@ -12,6 +12,8 @@ export class AppletService {
 
 	API_URL = 'http://139.59.155.219:8000';
 
+	basket = 0;
+
 	constructor(private http: Http,
               	private httpClient: HttpClient) {
   	}
@@ -20,7 +22,7 @@ export class AppletService {
 	    const headers = new Headers();
     	headers.append('Content-Type', 'application/json');
 	    return this.http
-	      	.post(this.API_URL+'/cabinet/profile/', user, 
+	      	.post(this.API_URL+'/cabinet/customers/', user, 
 	        	{headers: headers})
 	      	.map(res => {
 	      		const resp = res.json();
@@ -37,7 +39,7 @@ export class AppletService {
 	    const headers = new Headers();
     	headers.append('Content-Type', 'application/json');
 	    return this.http
-	      	.post(this.API_URL+'/cabinet/authenticate/', {username:user.email , password:user.password }, 
+	      	.post(this.API_URL+'/cabinet/customers/authenticate/', {username:user.email , password:user.password }, 
 	        	{headers: headers})
 	      	.map(res => {
 	      		const resp = res.json();
@@ -55,7 +57,7 @@ export class AppletService {
     	headers.append('Content-Type', 'application/json');
     	headers.append('Authorization', "Token " + this.getToken());
 	    return this.http
-	      	.post(this.API_URL+'/cabinet/profile/set_password/', {old_password:oldPassword , new_password:newPassword }, 
+	      	.post(this.API_URL+'/cabinet/customers/set_password/', {old_password:oldPassword , new_password:newPassword }, 
 	        	{headers: headers})
 	      	.map(res => {
 	      		return res;
@@ -68,7 +70,7 @@ export class AppletService {
     	headers.append('Content-Type', 'application/json');
     	headers.append('Authorization', "Token " + this.getToken());
 	    return this.http
-	      	.post(this.API_URL+'/cabinet/address/', address, 
+	      	.post(this.API_URL+'/cabinet/customers/addresses/', address, 
 	        	{headers: headers})
 	      	.map(res => {
 	      		return res;
@@ -76,15 +78,41 @@ export class AppletService {
 	      	.catch(this.handleError);
 	}
 
-	getAddress(): Observable<any> {
+	changeAddress(address): Observable<any> {
 	    const headers = new Headers();
     	headers.append('Content-Type', 'application/json');
     	headers.append('Authorization', "Token " + this.getToken());
 	    return this.http
-	      	.get(this.API_URL+'/cabinet/address/', 
+	      	.patch(this.API_URL+'/cabinet/customers/addresses/'+ address.id, address, 
 	        	{headers: headers})
 	      	.map(res => {
-	      		return res.json().data[0];
+	      		return res;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	getAddresses(): Observable<any> {
+	    const headers = new Headers();
+    	headers.append('Content-Type', 'application/json');
+    	headers.append('Authorization', "Token " + this.getToken());
+	    return this.http
+	      	.get(this.API_URL+'/cabinet/customers/addresses/', 
+	        	{headers: headers})
+	      	.map(res => {
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	getAddress(id): Observable<any> {
+	    const headers = new Headers();
+    	headers.append('Content-Type', 'application/json');
+    	headers.append('Authorization', "Token " + this.getToken());
+	    return this.http
+	      	.get(this.API_URL+'/cabinet/customers/addresses/' + id, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		return res.json().data;
 	      	})
 	      	.catch(this.handleError);
 	}
@@ -94,9 +122,111 @@ export class AppletService {
     	headers.append('Content-Type', 'application/json');
     	headers.append('Authorization', "Token " + this.getToken());
 	    return this.http
-	      	.get(this.API_URL+'/cabinet/profile/'+this.getUser().id, 
+	      	.get(this.API_URL+'/cabinet/customers/'+this.getUser().id, 
 	        	{headers: headers})
 	      	.map(res => {
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+
+	getProductListByCategory(id): Observable<any>{
+		const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    return this.http
+	      	.get(this.API_URL+'/store/products/?category='+id, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	getProductById(id): Observable<any>{
+		const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    return this.http
+	      	.get(this.API_URL+'/store/products/'+id, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	addToBasket(product):Observable<any>{
+		const headers = new Headers();
+    		headers.append('Content-Type', 'application/json');
+    		headers.append('Authorization', "Token " + this.getToken());
+	    return this.http
+	      	.post(this.API_URL+'/store/basket/', product , 
+	        	{headers: headers})
+	      	.map(res => {
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	confirmOrder(address):Observable<any>{
+		const headers = new Headers();
+    		headers.append('Content-Type', 'application/json');
+    		headers.append('Authorization', "Token " + this.getToken());
+	    return this.http
+	      	.post(this.API_URL+'/store/basket/confirm/', address , 
+	        	{headers: headers})
+	      	.map(res => {
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	getOrders(): Observable<any>{
+		const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    	headers.append('Authorization', "Token " + this.getToken());
+	    return this.http
+	      	.get(this.API_URL+'/store/orders/', 
+	        	{headers: headers})
+	      	.map(res => {
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	getCategoryById(id): Observable<any>{
+		const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    return this.http
+	      	.get(this.API_URL+'/store/categories/'+id, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	getCategories(): Observable<any>{
+		const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    return this.http
+	      	.get(this.API_URL+'/store/categories/', 
+	        	{headers: headers})
+	      	.map(res => {
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	getBasket(): Observable<any>{
+		const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    	headers.append('Authorization', "Token " + this.getToken());
+	    return this.http
+	      	.get(this.API_URL+'/store/basket/', 
+	        	{headers: headers})
+	      	.map(res => {
+	      		this.basket = res.json().data.length
 	      		return res.json().data;
 	      	})
 	      	.catch(this.handleError);
@@ -107,11 +237,25 @@ export class AppletService {
     	headers.append('Content-Type', 'application/json');
     	headers.append('Authorization', "Token " + this.getToken());
 	    return this.http
-	      	.patch(this.API_URL+'/cabinet/profile/'+this.getUser().id, profile, 
+	      	.patch(this.API_URL+'/cabinet/customers/'+this.getUser().id, profile, 
 	        	{headers: headers})
 	      	.map(res => {
 	      		const resp = res.json();
 	      		window.localStorage.setItem('user', JSON.stringify(resp.data));
+	      		return res;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	delBasketItem(id): Observable<any> {
+	    const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    	headers.append('Authorization', "Token " + this.getToken());
+	    return this.http
+	      	.delete(this.API_URL+'/store/basket/'+id, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		const resp = res.json();
 	      		return res;
 	      	})
 	      	.catch(this.handleError);

@@ -1,0 +1,25 @@
+<section class="category" *ngIf="isDataAvailable">
+	<div class="breads">
+		<div class="container">
+			<span routerLink="/" style="cursor: pointer;">Главная</span> > {{categoryName}} <span class="result">{{products.length}}</span> результатов
+		</div>
+	</div>
+	<div class="container row">
+		<div class="left-nav">
+			<ul *ngIf="categories">
+				<li *ngFor="let c of categories" routerLink="/category/{{c.id}}" routerLinkActive="active">{{c.name}}</li>
+			</ul>
+		</div>
+		<div class="category-content">
+			<ul class="row">
+				<li *ngFor="let product of products">
+				 	<div class="box" routerLink="/product/{{product.id}}">
+				 		<img src="assets/img/d.jpg" alt="">
+				 		<h2>{{product.name}}</h2>
+				 		<p class="price">{{product.price}} тг.</p>
+				 	</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>

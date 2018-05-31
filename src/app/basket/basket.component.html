@@ -1,0 +1,63 @@
+<section class="basket">
+	<div class="breads">
+		<div class="container">
+			<span routerLink="/" style="cursor: pointer;">Главная</span> > Ваша корзина ({{this.app.basket}} товара(ов))
+		</div>
+	</div>
+	<div class="container row">
+		<table>
+			<thead>
+				<tr>
+					<td>Наименование и описание товара </td>
+					<td>Цена</td>
+					<td>Колличество</td>
+					<td>Вес</td>
+					<td>Общая сумма</td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of basket">
+					<td>{{item.product.name}} </td>
+					<td>{{item.product.price}} тг. / шт.</td>
+					<td>{{item.count}} шт.</td>
+					<td>{{item.product.weight}} кг</td>
+					<td>{{item.product.price}} тг.</td>
+					<td><b (click)="deleteItem(item.id)">X</b></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="t-r">
+						<b>Итого:</b>
+					</td>
+					<td>
+						{{total.price}} тг.
+					</td>
+					<td>
+						{{total.count}} шт.
+					</td>
+					<td>
+						{{total.weight}} кг.
+					</td>
+					<td>
+						{{total.totalPrice}} тг.
+					</td>
+					<td></td>
+				</tr>
+			</tfoot>
+		</table>
+
+		<div class="basket-info">
+			<h2><b>Общая сумма товаров</b></h2>
+			<hr>
+			<p>Сумма ({{total.count}} товара(ов)): <b>{{total.totalPrice}} тг.</b> </p>
+			<p>Стоимость доставки: 0 тг.</p>
+			<hr>
+			<h3>ОБЩАЯ СУММА: <b style="color: #ff2f39;">{{total.totalPrice}} тг.</b></h3>
+			<div class="t-c" *ngIf="basket.length">
+				<div class="btn" routerLink="/confirm">Продолжить</div>
+			</div>
+		</div>
+	</div>
+</section>

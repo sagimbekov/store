@@ -1,0 +1,45 @@
+.orders li {
+    padding: 20px;
+    border: 1px solid #f6f6f6;
+    font-size: 16px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.04);
+    background: #f6f6f6;
+    margin-bottom: 20px;
+}
+
+.orders h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.orders b {
+    font-weight: 500;
+    color: #ff2f39;
+}
+
+.settings-b{
+    padding: 30px 0;
+}
+
+.products{
+    float: left;
+    width: 33.3%;
+    padding-right: 30px;
+}
+
+.product-name{
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.product-price{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+h4{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}

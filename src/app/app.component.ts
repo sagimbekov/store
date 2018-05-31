@@ -10,12 +10,18 @@ import {ActivatedRoute, Router, ParamMap} from '@angular/router';
 export class AppComponent {
  	 title = 'app';
   	constructor(public app: AppletService,
-  				public router: Router) {
+          public router: Router) {
+
+      if(this.app.checkAuth()){
+        this.app.getBasket().subscribe(res=>{
+        })
+      }
     }
 
     onLogOut(){
-    	this.app.logout();
-    	this.router.navigate(['/login']);
+      this.app.logout();
+      this.router.navigate(['/login']);
     }
+
 
 }

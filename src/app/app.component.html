@@ -17,24 +17,20 @@
           KHOREX
         </h1>
       </div>
-      <div class="header-right">
+      <div class="header-right" *ngIf="this.app.checkAuth()">
         <div class="nav-cart nav-cart-box">
-          <a href="#">
+          <a routerLink="/basket">
             <span class="text hidden-sm">Корзина</span>
           </a>
-          <span class="cart-number" id="nav-cart-num">(10)</span>
+          <span class="cart-number" id="nav-cart-num">({{this.app.basket}})</span>
         </div>
         <div class="nav-cart nav-wishlist">
-          <a href="#">
+          <a>
             <span class="text hidden-sm">Избранное</span>
           </a>
-          <span class="cart-number" id="nav-cart-num">(10)</span>
+          <span class="cart-number" id="nav-cart-num">(0)</span>
         </div>
-        <div class="login-register" [routerLink]="['/login']" *ngIf="!this.app.checkAuth()">
-          <img src="assets/img/man.png" alt="">
-          <p><b>Войти</b> или Регистрация <br><span class="arrow">Мой аккаунт</span></p>
-        </div>
-        <div class="login-register" *ngIf="this.app.checkAuth()">
+        <div class="login-register">
           <img src="assets/img/man.png" alt="">
           <p><b>Привет, {{this.app.getUser().first_name}}</b> <br><span class="arrow">Мой аккаунт</span></p>
 
@@ -46,6 +42,26 @@
           </div>
         </div>
       </div>
+
+      <div class="header-right" *ngIf="!this.app.checkAuth()">
+        <div class="nav-cart nav-cart-box">
+          <a routerLink="/login">
+            <span class="text hidden-sm">Корзина</span>
+          </a>
+          <span class="cart-number" id="nav-cart-num">(0)</span>
+        </div>
+        <div class="nav-cart nav-wishlist">
+          <a href="#">
+            <span class="text hidden-sm">Избранное</span>
+          </a>
+          <span class="cart-number" id="nav-cart-num">(0)</span>
+        </div>
+        <div class="login-register" [routerLink]="['/login']" *ngIf="!this.app.checkAuth()">
+          <img src="assets/img/man.png" alt="">
+          <p><b>Войти</b> или Регистрация <br><span class="arrow">Мой аккаунт</span></p>
+        </div>
+      </div>
+
       <div class="header-middle">
         <div class="header-search">
           <div class="search">

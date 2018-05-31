@@ -9,15 +9,16 @@ import {AppletService} from '../services/applet.service';
 })
 export class MainComponent implements OnInit {
 
- 	Arr = Array; 
-	num:number = 8;
+ 	cat = []; 
 
-  	constructor(private route: ActivatedRoute,
-              public app: AppletService) {
-    }
+	constructor(private route: ActivatedRoute,
+            public app: AppletService) {
+  }
 
 	ngOnInit() {
-	// this.search("gmail.com");
+	  this.app.getProductListByCategory(3).subscribe(res => {
+      this.cat = res.slice(0,8);
+    })
 	}
 
 }

@@ -6,13 +6,22 @@ import { AppComponent } from './app.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppletService } from './services/applet.service';
 import { HttpModule } from '@angular/http';
+import { LOCALE_ID } from '@angular/core';
 
 import { MainComponent  } from './main/main.component';
+import { ProductComponent  } from './product/product.component';
+import { BasketComponent  } from './basket/basket.component';
+
+import { ConfirmComponent  } from './confirmOrder/confirm.component';
+import { CategoryComponent  } from './category/category.component';
 import { LoginComponent  } from './login/login.component';
 import { SettingsComponent  } from './settings/settings.component';
 import { AccountComponent  } from './settings/account/account.component';
+import { OrdersComponent  } from './settings/orders/orders.component';
 import { PasswordComponent  } from './settings/account/password/password.component';
 import { AddressComponent  } from './settings/account/address/address.component';
+import { AddAddressComponent  } from './settings/account/address/addAddress/addAddress.component';
+import { EditAddressComponent  } from './settings/account/address/editAddress/editAddress.component';
 import { ProfileComponent  } from './settings/account/profile/profile.component';
 
 
@@ -20,20 +29,28 @@ import {AuthGuard} from './guards/auth.guard';
 
 const appRoutes: Routes = [
 	{path: '', component: MainComponent},
+  {path: 'main', component: MainComponent},
+  {path: 'category/:id', component: CategoryComponent},
+  {path: 'product/:id', component: ProductComponent},
+  {path: 'basket', component: BasketComponent},
+  {path: 'confirm', component: ConfirmComponent},
 	{path: 'login', component: LoginComponent},
-  	{
-  		path: 'settings', component: SettingsComponent, canActivate: [AuthGuard],
-		children: [
-			{path: '', redirectTo: 'account', pathMatch: 'full'},
-			{
-				path: 'account', component: AccountComponent,
-				children: [
-					{path: '', redirectTo: 'profile', pathMatch: 'full'},
-					{path: 'password', component: PasswordComponent},
-          {path: 'address', component: AddressComponent},
+  {
+    path: 'settings', component: SettingsComponent, canActivate: [AuthGuard],
+    children: [
+      {path: '', redirectTo: 'account', pathMatch: 'full'},
+      {
+        path: 'account', component: AccountComponent,
+        children: [
+          {path: '', redirectTo: 'profile', pathMatch: 'full'},
+          {path: 'password', component: PasswordComponent},
           {path: 'profile', component: ProfileComponent},
-				]
-			}
+          {path: 'address', component: AddressComponent,          },
+          {path: 'editAddress/:id', component: EditAddressComponent},
+          {path: 'addAddress', component: AddAddressComponent},
+        ]
+      },
+      {path: 'orders', component: OrdersComponent},
 		]
 	},
   {path: '**', component: LoginComponent},
@@ -43,13 +60,20 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    BasketComponent,
+    OrdersComponent,
+    ConfirmComponent,
     MainComponent,
     LoginComponent,
     SettingsComponent,
     AccountComponent,
+    CategoryComponent,
+    ProductComponent,
     PasswordComponent,
     AddressComponent,
     ProfileComponent,
+    AddAddressComponent,
+    EditAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +85,9 @@ const appRoutes: Routes = [
       appRoutes,
     ),
   ],
-  providers: [AppletService,AuthGuard],
+  providers: [AppletService,AuthGuard,
+     { provide: LOCALE_ID, useValue: "ru-RU" }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

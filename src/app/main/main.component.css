@@ -57,8 +57,12 @@ ul.left-nav li {
     margin-top: -1px;
     color: #3e3e3e;
     font-weight: 500;
+    cursor: pointer;
 }
 
+ul.left-nav li:hover{
+    background: #f6f6f6;
+}
 
 .lef-banner {
     float: left;

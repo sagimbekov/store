@@ -10,7 +10,7 @@ import {AppletService} from '../services/applet.service';
 export class LoginComponent implements OnInit {
 
 	user = {
-		email: '', password: '', first_name: 'Ilyas', second_name: 'Sagimbekov'
+		email: '', password: '',
 	};
 	showL = true;
 	constructor(private route: ActivatedRoute,
@@ -33,6 +33,9 @@ export class LoginComponent implements OnInit {
   		this.app.authenticate(this.user).subscribe(res => {
   			if(res.data.token){
   				this.router.navigate(['/settings']);
+  				this.app.getBasket().subscribe(res => {
+  					
+  				})
   			}
   		})
   	}

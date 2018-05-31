@@ -1,0 +1,71 @@
+<section class="product">
+	<div class="breads">
+		<div class="container">
+			<span routerLink="/" style="cursor: pointer;">Главная</span> > <span routerLink="/category/{{category.id}}" style="cursor: pointer;">{{category.name}}</span>
+		</div>
+	</div>
+	<div class="container" *ngIf="product">
+		<div class="row">
+			<div class="left-img">
+				<img src="assets/img/d.jpg" alt="">
+			</div>
+			<div class="product-right">
+				<h2>{{product.name}}</h2>
+				<div class="product-info">
+					<table>
+						<tr>
+							<td>Цена: </td>
+							<td><span class="price">{{product.price}}</span></td>
+						</tr>
+						<tr>
+							<td>Доставка:</td>
+							<td><b>Бесплатная доставка в Казахстан  Авиа службой</b></td>
+						</tr>
+						<tr>
+							<td>Количество: </td>
+							<td><input type="number" min="1" max="{{product.available}}" [(ngModel)]="count"> шт. ({{product.available}} шт. Доступно)</td>
+						</tr>
+						<tr>
+							<td>Общая стоимость:   </td>
+							<td><span class="price-small">{{product.price * count}} тг.</span></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div class="btn" (click)="addToBasket()"><img src="assets/img/buy.png" alt=""> Добавить в корзину</div>
+								
+							</td>
+						</tr>
+						<tr *ngIf="basketInfo" class="basket-tt">
+							<td colspan="2">
+								<div class="basket-info">
+									<p>Товар был добавлен в корзину. Товаров в Вашей корзине: <b>{{this.app.basket}}</b> <span routerLink="/basket">Перейти к корзине</span></p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>Возврат товара: </td>
+							<td>
+								Если товар не соответствует описанию, вы можете вернуть товар, оплатив стоимость обратной пересылки, или оставить товар себе и договориться о компенсации с продавцом.
+							</td>
+						</tr>
+						<tr>
+							<td>Оплата:</td>
+							<td><b>Оплата курьеру</b></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="left-info">
+				<h2>О продавце</h2>
+			</div>
+			<div class="right-info">
+				<h2>Описание товара</h2>
+				<hr>
+				<div [innerHtml]="product.content" class="product-content"></div> 
+			</div>
+		</div>
+	</div>
+</section>

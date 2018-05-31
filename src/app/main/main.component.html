@@ -1,30 +1,30 @@
 <section class="breads">
   <div class="container">
     <ul>
-      <li>Смотреть все категории   ></li>
-      <li><b>Новые поступления</b></li>
-      <li><b>Горячие товары</b></li>
-      <li><b>Часто покупаемые товары</b></li>
+      <li  routerLink="/category/3">Смотреть все категории</li>
+      <li  routerLink="/category/3"><b>Новые поступления</b></li>
+      <li  routerLink="/category/3"><b>Горячие товары</b></li>
+      <li  routerLink="/category/3"><b>Часто покупаемые товары</b></li>
     </ul>
   </div>
 </section>
 
 
-<section class="body">
+<section class="body row">
   <div class="container">
     <div class="body-top">
       <ul class="left-nav">
-        <li>Женская одежда и аксессуары</li>
-        <li>Мужская одежда и аксессуары</li>
-        <li>Телефоны и телекомуникации</li>
-        <li>Мамам и малышам</li>
-        <li>Авто и мото</li>
-        <li>Ювелирные украшения</li>
-        <li>Бижутерия и часы</li>
-        <li>Компьютерная техника и ПО</li>
-        <li>Сумки и чемоданы</li>
-        <li>Дом и сад</li>
-        <li>Электроника</li>
+        <li routerLink="/category/3">Женская одежда и аксессуары</li>
+        <li routerLink="/category/4">Мужская одежда и аксессуары</li>
+        <li routerLink="/category/5">Телефоны и телекомуникации</li>
+        <li routerLink="/category/6">Мамам и малышам</li>
+        <li routerLink="/category/7">Авто и мото</li>
+        <li routerLink="/category/8">Ювелирные украшения</li>
+        <li routerLink="/category/9">Бижутерия и часы</li>
+        <li routerLink="/category/10">Компьютерная техника и ПО</li>
+        <li routerLink="/category/11">Сумки и чемоданы</li>
+        <li routerLink="/category/12">Дом и сад</li>
+        <li routerLink="/category/13">Электроника</li>
       </ul>
       <div class="lef-banner">
         <img src="assets/img/demo.jpg" alt="">
@@ -37,7 +37,7 @@
   </div>
 </section>
 
-<section class="body-c">
+<!-- <section class="body-c">
   <div class="container">
     <ul>
       <li>
@@ -66,10 +66,11 @@
       </li>
     </ul>
   </div>
-</section>
+</section> -->
 
+<br>
 
-<section class="baners">
+<section class="baners row">
   <div class="container">
     <div class="bb-d">
       <div class="banner-d banner1" style="background: url(assets/img/b1.jpg) center center/cover no-repeat;">
@@ -85,22 +86,22 @@
 
 <section class="product-category">
   <div class="container">
-    <h1>Игрушки и роботы</h1>
+    <h1>Женская одежда и аксессуары</h1>
 
     <div class="p-c-body">
       <div class="pp-ban">
         <img src="assets/img/baner1.jpg" height="400" alt="">
       </div>
       <div class="p-c-products">
-        <div class="item" *ngFor="let i of Arr(num).fill(1)">
-          <p>300000 тг.</p>
-          <img src="assets/img/dd.png" alt="">
+        <div class="item" *ngFor="let i of cat" routerLink="/product/{{i.id}}">
+          <p>{{i.price}} тг.</p>
+          <img src="assets/img/d.jpg" alt="">
         </div>
       </div>
     </div>
   </div>
 </section>
-
+<!-- 
 <section class="product-category">
   <div class="container">
     <h1>Электроника</h1>
@@ -117,4 +118,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->

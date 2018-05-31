@@ -1,0 +1,136 @@
+.result{
+	color: #f5363e;
+}
+
+.breads {
+    background: #fafafa;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+section.category {
+    background: #f6f6f6;
+}
+
+.category-content{
+	margin-top: 19px;
+	padding: 20px;
+	border: 1px solid #f2f2f2;
+	background: #fff;
+	margin-left: 299px;
+	margin-bottom: 20px;
+}
+
+.category-content li{
+    min-height: 300px;
+    padding: 0;
+    padding-bottom: 30px;
+    width: 25%;
+    float: left;
+    clear: none;
+    border: none;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.category-content li:hover .box {
+    box-shadow: 0 0 3px #ccc;
+    bottom: inherit;
+    background: #fff;
+    z-index: 99;
+}
+
+.category-content li:hover .box h2 {
+    height: inherit;
+}
+.box h2 {
+    font-size: 14px;
+    line-height: 16px;
+    height: 30px;
+    min-height: 30px;
+    overflow: hidden;
+}
+
+.box {
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.box img{
+	margin-bottom: 20px;
+}
+
+.price{
+	color: #ff2f39;
+	font-size: 16px;
+	font-weight: 600;
+	margin-top: 10px;
+}
+
+.left-nav {
+    float: left;
+    font-size: 15px;
+    margin: 20px 0;
+    width: 300px;
+    background: #fff;
+}
+
+.left-nav li {
+    margin-bottom: -1px;
+    padding: 10px;
+    border: 1px solid #f2f2f2;
+    margin-top: -1px;
+    color: #3e3e3e;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.left-nav li:hover {
+    background: #f6f6f6;
+}
+
+.left-nav li.active{
+	background: #f5363e;
+	color: #fff;
+}
+
+.left-nav li:after {
+    content: '';
+    position: absolute;
+    right: -50px;
+    opacity: 0;
+    top: -2px;
+    border-right: 16px solid #e8e8e8;
+    border-top: 19px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+
+.left-nav li:before {
+    content: '';
+    position: absolute;
+    right: -50px;
+    opacity: 0;
+    top: -2px;
+    border-right: 16px solid #fff;
+    border-top: 19px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+
+.left-nav li.active:after{
+	z-index: 1;
+	opacity: 1;
+	right: 0px;
+}
+
+.left-nav li.active:before{
+ 	right: -2px;
+ 	opacity: 1;
+    z-index: 2;
+}

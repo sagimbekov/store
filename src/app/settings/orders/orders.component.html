@@ -1,0 +1,20 @@
+<section class="settings-b">
+	<div class="container">
+		<ul class="orders">
+			<li *ngFor="let order of orders">
+				<h3 class="d-f">
+					<span style="font-size: 20px;">Заказ <b>№ {{order.id}}</b></span>
+					<span>Статус заказа: <b>{{order.status}}</b></span>
+					<span>Дата заказа: <b>{{order.timestamp | date}}</b></span>
+				</h3>
+				<h4>Товары:</h4>
+				<div class="row">
+					<div class="products" *ngFor="let product of order.products">
+						<div class="product-name"><b>{{product.count}} X </b> <span>{{product.name}}</span></div>
+						<div class="product-price"><b>{{product.price * product.count}} тг.</b></div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
