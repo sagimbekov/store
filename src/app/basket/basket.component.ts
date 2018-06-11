@@ -26,7 +26,7 @@ export class BasketComponent implements OnInit {
 
   getBasket(){
     this.app.getBasket().subscribe(res=>{
-      if(res){
+      if(res.length){
         this.basket = res;
         this.total.price = this.calc(res, "price");
         this.total.count = this.calc(res, "count");
