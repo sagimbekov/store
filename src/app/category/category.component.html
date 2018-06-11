@@ -4,7 +4,7 @@
 			<span routerLink="/" style="cursor: pointer;">Главная</span> > {{categoryName}} <span class="result">{{products.length}}</span> результатов
 		</div>
 	</div>
-	<div class="container row">
+	<div class="container">
 		<div class="left-nav">
 			<ul *ngIf="categories">
 				<li *ngFor="let c of categories" routerLink="/category/{{c.id}}" routerLinkActive="active">{{c.name}}</li>

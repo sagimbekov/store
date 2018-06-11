@@ -1,4 +1,4 @@
-<section class="header">
+<section class="head">
   <div class="container">
     <div class="header-top row">
       <p>Доставка по всему Казахстану</p>
@@ -11,24 +11,29 @@
         <li class="arrow">Язык</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section class="header">
+  <div class="container">
     <div class="header-bottom row">
       <div class="header-left">
-        <h1 class="header-logo" [routerLink]="['']">
-          KHOREX
-        </h1>
+        <a class="header-logo" [routerLink]="['']">
+          <img src="../assets/img/logo.png" alt="">
+        </a>
       </div>
       <div class="header-right" *ngIf="this.app.checkAuth()">
         <div class="nav-cart nav-cart-box">
           <a routerLink="/basket">
             <span class="text hidden-sm">Корзина</span>
           </a>
-          <span class="cart-number" id="nav-cart-num">({{this.app.basket}})</span>
+          <span class="cart-number" id="nav-cart-num">{{this.app.basket}}</span>
         </div>
         <div class="nav-cart nav-wishlist">
           <a>
             <span class="text hidden-sm">Избранное</span>
           </a>
-          <span class="cart-number" id="nav-cart-num">(0)</span>
+          <span class="cart-number" id="nav-cart-num">0</span>
         </div>
         <div class="login-register">
           <img src="assets/img/man.png" alt="">
@@ -48,13 +53,13 @@
           <a routerLink="/login">
             <span class="text hidden-sm">Корзина</span>
           </a>
-          <span class="cart-number" id="nav-cart-num">(0)</span>
+          <span class="cart-number" id="nav-cart-num">0</span>
         </div>
         <div class="nav-cart nav-wishlist">
           <a href="#">
             <span class="text hidden-sm">Избранное</span>
           </a>
-          <span class="cart-number" id="nav-cart-num">(0)</span>
+          <span class="cart-number" id="nav-cart-num">0</span>
         </div>
         <div class="login-register" [routerLink]="['/login']" *ngIf="!this.app.checkAuth()">
           <img src="assets/img/man.png" alt="">
@@ -64,10 +69,32 @@
 
       <div class="header-middle">
         <div class="header-search">
-          <div class="search">
-            <input type="text">
-            <span class="allC">Все категории</span>
+          <form action="">
+            <div class="search-content">
+              <div class="inner">
+                <input type="text" placeholder="Я ищу...">
+              </div>
+            </div>
+            <div class="search-category">
+              <select name="" id="">
+                <option value="">Женская одежда и аксессуары</option>
+                <option value="">Мужская одежда и аксессуары</option>
+              </select>
+            </div>
+            <button type="submit"></button>
+          </form>
+          <div class="key-word-search">
+            <span class="title-key">Самые популярные:</span>
+            <div class="listkey-word">
+              <a href="" class="key-item"> Galaxy S9 </a>
+              <a href="" class="key-item"> IPhone X </a>
+              <a href="" class="key-item"> рыбалка </a>
+            </div>
           </div>
+          <!-- <div class="search">
+            <input type="text" placeholder="Я ищу..."> -->
+            <!-- <span class="allC">Все категории</span>
+          </div> -->
         </div>
       </div>
     </div>
@@ -75,7 +102,6 @@
 </section>
 
 <router-outlet>
-  <ng4-loading-spinner> </ng4-loading-spinner>
 </router-outlet>
 
 <section class="footer">

@@ -74,7 +74,7 @@ body {
   margin: 0;
   background: #ffffff;
   color: #000;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Calibri', sans-serif;
   font-size: 19px;
 }
 .row:after,.row:before {
@@ -86,12 +86,72 @@ body {
     clear: both
 }
 
-.container{
+/*.container{
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
     width: 1200px;
+}*/
+.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .modal-header:before, .modal-header:after, .modal-footer:before, .modal-footer:after {
+    content: " ";
+    display: table;
+}
+
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.clearfix:after, .dl-horizontal dd:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .modal-header:after, .modal-footer:after {
+    clear: both;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (min-width: 768px) {
+    .container {
+        width:750px
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width:970px
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width:1170px
+    }
+}
+
+@media (min-width: 1200px){
+  .container {
+      width: 1440px;
+      padding-left: 20px;
+      padding-right: 20px;
+      max-width: 100%;
+  }
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px
 }
 
 html, body{
@@ -327,7 +387,7 @@ textarea {
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Calibri', sans-serif;
 }
 
 button,.btn {

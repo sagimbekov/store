@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute,Event, Router, ParamMap, NavigationEnd} from '@angular/router';
 import {AppletService} from '../services/applet.service';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-category',
@@ -18,7 +17,7 @@ export class CategoryComponent implements OnInit {
 	constructor(private route: ActivatedRoute,
             private router: Router,
             public app: AppletService,
-            private spinnerService: Ng4LoadingSpinnerService) {
+            ) {
       
       router.events.subscribe( (event: Event) => {
           if (event instanceof NavigationEnd) {
