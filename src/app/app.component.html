@@ -72,16 +72,15 @@
           <form action="">
             <div class="search-content">
               <div class="inner">
-                <input type="text" placeholder="Я ищу...">
+                <input type="text" placeholder="Я ищу..." [(ngModel)]="SearchText" name="SearchText">
               </div>
             </div>
             <div class="search-category">
-              <select name="" id="">
-                <option value="">Женская одежда и аксессуары</option>
-                <option value="">Мужская одежда и аксессуары</option>
+              <select [(ngModel)]="SelectCat" name="SelectCat">
+                <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</option>
               </select>
             </div>
-            <button type="submit"></button>
+            <button type="submit" (click)="searchByCat()"></button>
           </form>
           <div class="key-word-search">
             <span class="title-key">Самые популярные:</span>
@@ -91,10 +90,6 @@
               <a href="" class="key-item"> рыбалка </a>
             </div>
           </div>
-          <!-- <div class="search">
-            <input type="text" placeholder="Я ищу..."> -->
-            <!-- <span class="allC">Все категории</span>
-          </div> -->
         </div>
       </div>
     </div>

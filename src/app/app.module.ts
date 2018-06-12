@@ -24,7 +24,6 @@ import { AddAddressComponent  } from './settings/account/address/addAddress/addA
 import { EditAddressComponent  } from './settings/account/address/editAddress/editAddress.component';
 import { ProfileComponent  } from './settings/account/profile/profile.component';
 import {OrdersResolve} from './_resolve/orders.resolve'
-// import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 import {AuthGuard} from './guards/auth.guard';
 

@@ -261,6 +261,19 @@ export class AppletService {
 	      	.catch(this.handleError);
 	}
 
+	searchByCat(id, text): Observable<any>{
+		const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    return this.http
+	      	.get(this.API_URL+'/store/products/?category=' + id +'&text='+text, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		const resp = res.json();
+	      		return res;
+	      	})
+	      	.catch(this.handleError);
+	}
+
 
 	checkAuth() {
 	    return window.localStorage.getItem('auth_key') && window.localStorage.getItem('user');

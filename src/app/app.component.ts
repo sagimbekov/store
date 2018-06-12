@@ -8,7 +8,11 @@ import {ActivatedRoute, Router, ParamMap} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 	 title = 'app';
+ 	title = 'app';
+  categories;
+  SelectCat;
+  SearchText;
+
   	constructor(public app: AppletService,
           public router: Router) {
 
@@ -16,11 +20,24 @@ export class AppComponent {
         this.app.getBasket().subscribe(res=>{
         })
       }
+
+      this.app.getCategories().subscribe(res=>{
+        this.categories = res;
+        if(res){
+          this.SelectCat = res[0].id
+        }
+      })
     }
 
     onLogOut(){
       this.app.logout();
       this.router.navigate(['/login']);
+    }
+
+    searchByCat(){
+      this.app.searchByCat(this.SelectCat, this.SearchText).subscribe(res => {
+        console.log(res)
+      })
     }
 
 
