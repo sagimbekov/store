@@ -13,6 +13,7 @@ export class AppletService {
 	API_URL = 'http://139.59.155.219:8000';
 
 	basket = 0;
+	fav = 0;
 
 	constructor(private http: Http,
               	private httpClient: HttpClient) {
@@ -181,6 +182,49 @@ export class AppletService {
 	      	.catch(this.handleError);
 	}
 
+	addToFav(id):Observable<any>{
+		const headers = new Headers();
+    		headers.append('Content-Type', 'application/json');
+    		headers.append('Authorization', "Token " + this.getToken());
+	    return this.http
+	      	.post(this.API_URL+'/store/favourites/', {'product': id} , 
+	        	{headers: headers})
+	      	.map(res => {
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	getFav():Observable<any>{
+		const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    	headers.append('Authorization', "Token " + this.getToken());
+	    return this.http
+	      	.get(this.API_URL+'/store/favourites/', 
+	        	{headers: headers})
+	      	.map(res => {
+	      		const resp = res.json();
+	      		this.fav = res.json().data.length;
+	      		return res.json().data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	delFav(id): Observable<any> {
+	    const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    	headers.append('Authorization', "Token " + this.getToken());
+	    return this.http
+	      	.delete(this.API_URL+'/store/favourites/'+id, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		const resp = res.json();
+	      		return res;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+
 	getOrders(): Observable<any>{
 		const headers = new Headers();
 	    	headers.append('Content-Type', 'application/json');
@@ -269,7 +313,7 @@ export class AppletService {
 	        	{headers: headers})
 	      	.map(res => {
 	      		const resp = res.json();
-	      		return res;
+	      		return resp.data;
 	      	})
 	      	.catch(this.handleError);
 	}

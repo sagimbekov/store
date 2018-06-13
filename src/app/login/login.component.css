@@ -73,3 +73,10 @@ section.login {
     color: #f5363e;
     cursor: pointer;
 }
+
+@media (max-width: 600px){
+    .login-left,.login-right{
+        float: none;
+        width: 100%;
+    }
+}

@@ -1,0 +1,27 @@
+<section class="fav">
+	<div class="breads">
+		<div class="container">
+			<span routerLink="/" style="cursor: pointer;">Главная</span> > Избранное
+		</div>
+	</div>
+	<div class="container">
+		<table *ngIf="favorites">
+			<tr *ngFor="let item of favorites">
+				<td><b class="del" (click)="delFav(item.id)">×</b></td>
+				<td>{{item.product.name}}</td>
+				<td>{{item.product.price}} тг</td>
+				<td><input type="number" [(ngModel)]="item.product.available" min="1" max="{{item.product.available}}"></td>
+				<td>
+					<div class="btn" (click)="addToBasket(item.id,item.product.id, item.product.available)"><img src="assets/img/buy.png" alt=""> Добавить в корзину</div>
+					<div class="basket-info" *ngIf="item.id === currentId">
+						<p>Товар был добавлен в корзину. <br> Товаров в Вашей корзине: <b>{{this.app.basket}}</b> <br> <a routerLink="/basket">Перейти к корзине</a></p>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+		<div class="info-text" *ngIf="!favorites">
+			<h2>Вы ещё ничего не добавили в список желаний. <a [routerLink]="['/']">Выберите что-нибудь</a></h2>
+		</div>
+	</div>
+</section>

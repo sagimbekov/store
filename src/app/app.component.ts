@@ -19,6 +19,8 @@ export class AppComponent {
       if(this.app.checkAuth()){
         this.app.getBasket().subscribe(res=>{
         })
+        this.app.getFav().subscribe(res=>{
+        })
       }
 
       this.app.getCategories().subscribe(res=>{
@@ -35,9 +37,9 @@ export class AppComponent {
     }
 
     searchByCat(){
-      this.app.searchByCat(this.SelectCat, this.SearchText).subscribe(res => {
-        console.log(res)
-      })
+      if(this.SearchText){
+       this.router.navigate(['/search/' + this.SelectCat + '/' + this.SearchText]);
+      }
     }
 
 

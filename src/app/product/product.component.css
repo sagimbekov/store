@@ -6,6 +6,26 @@ section.product{
 	padding-bottom: 40px;
 }
 
+.fav-btn {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.fav-btn img {
+    max-width: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.fav-btn:hover {
+    color: #ff2f39;
+}
+
 .breads {
     background: #fafafa;
     border-bottom: 1px solid #f2f2f2;

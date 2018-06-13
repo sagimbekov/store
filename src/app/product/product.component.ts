@@ -45,4 +45,14 @@ export class ProductComponent implements OnInit {
       this.router.navigate(["login"]);
     }
   }
+
+  addToFav(){
+    this.app.addToFav(this.id).subscribe(res => {
+      this.app.getFav().subscribe(res => {
+        
+      })
+    })
+  }
+
+
 }

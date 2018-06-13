@@ -1,0 +1,20 @@
+<section class="search">
+	<div class="breads">
+		<div class="container">
+			<span routerLink="/" style="cursor: pointer;">Главная</span> > {{categoryName}} > {{text}}
+		</div>
+	</div>
+	<div class="container">
+		<div class="category-content">
+			<ul class="row">
+				<li *ngFor="let product of products">
+				 	<div class="box" routerLink="/product/{{product.id}}">
+				 		<img src="assets/img/d.jpg" alt="">
+				 		<h2>{{product.name}}</h2>
+				 		<p class="price">{{product.price}} тг.</p>
+				 	</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>

@@ -1,18 +1,3 @@
-.result{
-	color: #f5363e;
-}
-
-.breads {
-    background: #fafafa;
-    border-bottom: 1px solid #f2f2f2;
-    padding: 15px 0;
-    font-size: 14px;
-}
-
-section.category {
-    background: #f6f6f6;
-}
-
 .category-content{
 	margin-top: 19px;
 	padding: 20px;
@@ -138,20 +123,5 @@ section.category {
 @media (min-width: 1200px){
     .category-content li{
         min-height: 350px;
-    }
-}
-
-@media (max-width: 600px){
-    .left-nav {
-        display: none;
-    }
-
-    .category-content {
-        margin: 0;
-    }
-
-    .category-content li{
-        width: 50%;
-        float: left;
     }
 }

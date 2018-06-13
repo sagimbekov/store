@@ -28,16 +28,17 @@ input{
 
 .control-label {
     float: left;
-    width: 160px;
+    width: 30%;
     padding-top: 11px;
     display: block;
     margin-bottom: 5px;
     text-align: right;
     font-size: 14px;
+    padding-right: 20px;
 }
 
 .controls {
-    margin-left: 180px;
+    margin-left: 30%;
 }
 
 .controls input {
@@ -48,10 +49,6 @@ input{
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 0 20px;
-}
-
-.control-group {
-    max-width: 500px;
 }
 
 .default {

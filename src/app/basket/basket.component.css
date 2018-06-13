@@ -42,3 +42,9 @@ table{
 .basket-row{
 	padding: 30px 0;
 }
+
+td b.del{
+	cursor: pointer;
+	font-size: 30px;
+	line-height: 30px;
+}

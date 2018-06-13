@@ -32,6 +32,12 @@ export class BasketComponent implements OnInit {
         this.total.count = this.calc(res, "count");
         this.total.totalPrice = this.calc1(res, "price")
         this.total.weight = this.calc1(res, "weight")
+      }else{
+        this.basket = [];
+        this.total.price = 0;
+        this.total.count = 0;
+        this.total.totalPrice = 0
+        this.total.weight = 0;
       }
     })
   }

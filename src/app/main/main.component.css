@@ -1,4 +1,6 @@
-
+section.body {
+    background: #f6f6f6;
+}
 span.allC {
     position: absolute;
     left: 0;
@@ -52,16 +54,18 @@ ul.left-nav {
 }
 
 ul.left-nav li {
-    padding: 10px;
+    padding: 12px 20px;
     border: 1px solid #f2f2f2;
     margin-top: -1px;
     color: #3e3e3e;
     font-weight: 500;
     cursor: pointer;
+    background: #fff;
 }
 
 ul.left-nav li:hover{
-    background: #f6f6f6;
+    background: #95bf47;
+    color: #fff;
 }
 
 .lef-banner {
@@ -223,4 +227,48 @@ section.body-c li:hover{
     font-size: 30px;
     color: #3e3e3e;
     margin-top: 0;
+}
+
+ul.left-nav i {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 9px;
+    color: #ccc;
+}
+
+ul.left-nav li:hover i{
+    color: #fff;
+}
+
+@media (max-width: 600px){
+    section.breads{
+        display: none;
+    }
+    ul.left-nav {
+        width: 100%;
+    }
+
+    .right-banner {
+        display: none;
+    }
+
+    .banner-d {
+        width: 100%;
+        float: none;
+    }
+    .pp-ban {
+        display: none;
+    }
+
+    .p-c-products {
+        width: 100%;
+    }
+
+    .p-c-products .item{
+        width: 48%;
+        margin: 1%;
+    }
+    .lef-banner{
+        min-height: inherit;
+    }
 }

@@ -3,9 +3,9 @@
     <div class="header-top row">
       <p>Доставка по всему Казахстану</p>
       <ul>
-        <li>Карта МЦПС “Хоргос”</li>
-        <li>Защита покупателя</li>
-        <li>Программа возврата</li>
+        <li><a [routerLink]="['/about']" routerLinkActive="active">О нас</a></li>
+        <li><a [routerLink]="['/protection']" routerLinkActive="active">Защита покупателя</a></li>
+        <li><a [routerLink]="['/return']" routerLinkActive="active">Программа возврата</a></li>
         <li class="arrow">Помощь</li>
         <li class="arrow">KZT</li>
         <li class="arrow">Язык</li>
@@ -30,10 +30,10 @@
           <span class="cart-number" id="nav-cart-num">{{this.app.basket}}</span>
         </div>
         <div class="nav-cart nav-wishlist">
-          <a>
+          <a [routerLink]="['/favourites']">
             <span class="text hidden-sm">Избранное</span>
           </a>
-          <span class="cart-number" id="nav-cart-num">0</span>
+          <span class="cart-number" id="nav-cart-num">{{this.app.fav}}</span>
         </div>
         <div class="login-register">
           <img src="assets/img/man.png" alt="">
@@ -56,7 +56,7 @@
           <span class="cart-number" id="nav-cart-num">0</span>
         </div>
         <div class="nav-cart nav-wishlist">
-          <a href="#">
+          <a routerLink="/login">
             <span class="text hidden-sm">Избранное</span>
           </a>
           <span class="cart-number" id="nav-cart-num">0</span>
@@ -85,9 +85,9 @@
           <div class="key-word-search">
             <span class="title-key">Самые популярные:</span>
             <div class="listkey-word">
-              <a href="" class="key-item"> Galaxy S9 </a>
-              <a href="" class="key-item"> IPhone X </a>
-              <a href="" class="key-item"> рыбалка </a>
+              <a [routerLink]="['/search/13/Galaxy S9']" class="key-item"> Galaxy S9 </a>
+              <a [routerLink]="['/search/13/IPhone X']" class="key-item"> IPhone X </a>
+              <a [routerLink]="['/search/13/рыбалка']" class="key-item"> рыбалка </a>
             </div>
           </div>
         </div>

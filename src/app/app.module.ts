@@ -13,6 +13,11 @@ import { ProductComponent  } from './product/product.component';
 import { BasketComponent  } from './basket/basket.component';
 
 import { ConfirmComponent  } from './confirmOrder/confirm.component';
+import { AboutComponent  } from './about/about.component';
+import { ReturnComponent  } from './return/return.component';
+import { ProtectionComponent  } from './protection/protection.component';
+import { SearchComponent  } from './search/search.component';
+import { FavouritesComponent } from './favourites/favourites.component';
 import { CategoryComponent  } from './category/category.component';
 import { LoginComponent  } from './login/login.component';
 import { SettingsComponent  } from './settings/settings.component';
@@ -24,6 +29,7 @@ import { AddAddressComponent  } from './settings/account/address/addAddress/addA
 import { EditAddressComponent  } from './settings/account/address/editAddress/editAddress.component';
 import { ProfileComponent  } from './settings/account/profile/profile.component';
 import {OrdersResolve} from './_resolve/orders.resolve'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {AuthGuard} from './guards/auth.guard';
 
@@ -56,8 +62,13 @@ const appRoutes: Routes = [
       //   }
       // },
       {path: 'orders', component: OrdersComponent},
-		]
-	},
+    ]
+  },
+  {path: 'search/:id/:text', component: SearchComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'protection', component: ProtectionComponent},
+  {path: 'return', component: ReturnComponent},
+  {path: 'favourites', component: FavouritesComponent},
   {path: '**', component: LoginComponent},
 ];
 
@@ -65,7 +76,12 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    AboutComponent,
+    SearchComponent,
     BasketComponent,
+    ReturnComponent,
+    ProtectionComponent,
+    FavouritesComponent,
     OrdersComponent,
     ConfirmComponent,
     MainComponent,
@@ -84,6 +100,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
     RouterModule.forRoot(
