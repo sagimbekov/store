@@ -33,6 +33,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {AuthGuard} from './guards/auth.guard';
 
+import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("927182744774-s51qkiod1k77qljan1f4fpte4j4vkegm.apps.googleusercontent.com")
+  },
+  // {
+  //   id: FacebookLoginProvider.PROVIDER_ID,
+  //   provider: new FacebookLoginProvider("Facebook-App-Id")
+  // }
+]);
+
 const appRoutes: Routes = [
 	{path: '', component: MainComponent},
   {path: 'main', component: MainComponent},
@@ -103,6 +117,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
+    SocialLoginModule.initialize(config),
     RouterModule.forRoot(
       appRoutes,
     ),

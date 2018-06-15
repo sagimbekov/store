@@ -36,6 +36,23 @@ export class AppletService {
 	      	.catch(this.handleError);
 	}
 
+	googleAuth(token):Observable<any>{
+	 	const headers = new Headers();
+    	headers.append('Content-Type', 'application/json');
+	    return this.http
+	      	.post(this.API_URL+'/cabinet/customers/google/', {"access_token": token}, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		const resp = res.json();
+	        	if (resp.data.token && resp.data.user) {
+		          window.localStorage.setItem('auth_key', resp.data.token);
+		          window.localStorage.setItem('user', JSON.stringify(resp.data.user));
+		        }
+		        return resp;
+	      	})
+	      	.catch(this.handleError);
+	}
+
 	authenticate(user: any): Observable<any> {
 	    const headers = new Headers();
     	headers.append('Content-Type', 'application/json');

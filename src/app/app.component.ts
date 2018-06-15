@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AppletService} from './services/applet.service';
 import {ActivatedRoute, Router, ParamMap} from '@angular/router';
+import { AuthService } from "angular4-social-login";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent {
   SearchText;
 
   	constructor(public app: AppletService,
-          public router: Router) {
+          public router: Router,
+          private authService: AuthService) {
 
       if(this.app.checkAuth()){
         this.app.getBasket().subscribe(res=>{
@@ -33,6 +35,7 @@ export class AppComponent {
 
     onLogOut(){
       this.app.logout();
+      this.authService.signOut();
       this.router.navigate(['/login']);
     }
 
