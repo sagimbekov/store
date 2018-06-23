@@ -40,7 +40,8 @@ export class CategoryComponent implements OnInit {
       this.products = res;
     })
     this.app.getCategoryById(this.categoryId).subscribe(res=>{
-      this.categoryName = res.name;
+      this.categoryName = res.name_ru;
+      console.log(res)
       // this.spinnerService.hide();
     })
   }
