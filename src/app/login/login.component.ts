@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, ParamMap} from '@angular/router';
 import {AppletService} from '../services/applet.service';
-import { AuthService } from "angular4-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from "angular4-social-login";
-import { SocialUser } from "angular4-social-login";
+// import { AuthService } from "angular4-social-login";
+// import { FacebookLoginProvider, GoogleLoginProvider } from "angular4-social-login";
+// import { SocialUser } from "angular4-social-login";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ import { SocialUser } from "angular4-social-login";
 })
 export class LoginComponent implements OnInit {
 
-	private currentUser: SocialUser;
+	// private currentUser: SocialUser;
   	private loggedIn: boolean;
 
 	user = {
@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
 	constructor(private route: ActivatedRoute,
 	      		public app: AppletService,
 	      		public router: Router,
-	      		private authService: AuthService) {
+	      		// private authService: AuthService
+	      		) {
 	}
 
 	ngOnInit() {
@@ -30,29 +31,29 @@ export class LoginComponent implements OnInit {
 	}
 
 	check(){
-		this.authService.authState.subscribe((user) => {
-	      this.currentUser = user;
-	      this.loggedIn = (user != null);
-	    });
+		// this.authService.authState.subscribe((user) => {
+	 //      this.currentUser = user;
+	 //      this.loggedIn = (user != null);
+	 //    });
 	}
 
  	signInWithGoogle(): void {
-	    let res = this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-	    console.log(res)
-	    if(res){
-	    	this.user.email =this.currentUser.email;
-	    	this.user.name =this.currentUser.firstName;
-	    	this.app.googleAuth(this.currentUser.authToken).subscribe(res => {
-	    		this.router.navigate(['/settings']);
-  				this.app.getBasket().subscribe(res => {
+	    // let res = this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+	    // console.log(res)
+	    // if(res){
+	    // 	this.user.email =this.currentUser.email;
+	    // 	this.user.name =this.currentUser.firstName;
+	    // 	this.app.googleAuth(this.currentUser.authToken).subscribe(res => {
+	    // 		this.router.navigate(['/settings']);
+  			// 	this.app.getBasket().subscribe(res => {
   					
-  				})
-	    	})
-	    }
+  			// 	})
+	    // 	})
+	    // }
 	}
 	 
 	signInWithFB(): void {
-	    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+	    // this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
 	}
 	 
 

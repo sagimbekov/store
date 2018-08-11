@@ -14,17 +14,31 @@
   <div class="container">
     <div class="body-top">
       <ul class="left-nav">
-        <li routerLink="/category/14"><i class="flaticon-women-vest"></i> Женская одежда и аксессуары</li>
-        <li routerLink="/category/4"><i class="flaticon-shirt"></i> Мужская одежда и аксессуары</li>
-        <li routerLink="/category/5"><i class="flaticon-smartphone"></i> Телефоны и телекомуникации</li>
-        <li routerLink="/category/6"><i class="flaticon-baby"></i> Мамам и малышам</li>
-        <li routerLink="/category/7"><i class="flaticon-car"></i> Авто и мото</li>
-        <li routerLink="/category/8"><i class="flaticon-diamond"></i> Ювелирные украшения</li>
-        <li routerLink="/category/9"><i class="flaticon-watch"></i> Бижутерия и часы</li>
-        <li routerLink="/category/10"><i class="flaticon-computer"></i> Компьютерная техника и ПО</li>
-        <li routerLink="/category/11"><i class="flaticon-briefcase"></i> Сумки и чемоданы</li>
-        <li routerLink="/category/12"><i class="flaticon-home"></i> Дом и сад</li>
-        <li routerLink="/category/13"><i class="flaticon-washing-machine"></i> Электроника</li>
+        <li *ngFor="let item of categories">
+          <a  routerLink="/category/{{item.id}}" class="nav-main-cat"><i class="flaticon-{{item.css}}"></i> {{item.name}}</a>
+          <div class="left-nav-content">
+            <div class="left-nav-content-box" *ngFor="let cat of item.childs">
+              <h2><a routerLink="/category/{{cat.id}}">{{cat.name}}</a></h2>
+              <div class="sub-list" *ngFor="let childs of cat.childs">
+                <div><a routerLink="/category/{{childs.id}}">{{childs.name}}</a></div>
+              </div>
+            </div>
+          </div>
+        </li>
+        
+        <!-- <li routerLink="/category/2"><i class="flaticon-shirt"></i> Мужская одежда и аксессуары</li>
+        <li routerLink="/category/3"><i class="flaticon-smartphone"></i> Телефоны и телекомуникации</li>
+        <li routerLink="/category/4"><i class="flaticon-baby"></i> Мамам и малышам</li>
+        <li routerLink="/category/5"><i class="flaticon-car"></i> Авто и мото</li>
+        
+        <li routerLink="/category/6"><i class="flaticon-diamond"></i> Ювелирные украшения</li>
+        <li routerLink="/category/7"><i class="flaticon-watch"></i> Бижутерия и часы</li>
+
+        <li routerLink="/category/8"><i class="flaticon-computer"></i> Компьютерная техника и ПО</li>
+
+        <li routerLink="/category/9"><i class="flaticon-briefcase"></i> Сумки и чемоданы</li>
+        <li routerLink="/category/10"><i class="flaticon-home"></i> Дом и сад</li>
+        <li routerLink="/category/11"><i class="flaticon-washing-machine"></i> Электроника</li> -->
       </ul>
       <div class="lef-banner" [routerLink]="['/product/8']">
         <img src="assets/img/demo.jpg" alt="">

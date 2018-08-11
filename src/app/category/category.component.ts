@@ -12,7 +12,8 @@ export class CategoryComponent implements OnInit {
   categoryId;
   products = [];
   categoryName;
-  categories = [];
+  categories;
+  attrIds = [];
 
 	constructor(private route: ActivatedRoute,
             private router: Router,
@@ -27,22 +28,32 @@ export class CategoryComponent implements OnInit {
   }
 
 	ngOnInit() {
-    this.refreshCategory();
-    this.app.getCategories().subscribe(res => {
-      this.categories = res;
-    })
+    // this.refreshCategory();
+    // this.app.getCategories().subscribe(res => {
+    //   this.categories = res;
+    // })
 	}
 
   refreshCategory(){
-    // this.spinnerService.show();
     this.categoryId = this.route.snapshot.params['id'];
     this.app.getProductListByCategory(this.categoryId).subscribe(res=>{
       this.products = res;
     })
     this.app.getCategoryById(this.categoryId).subscribe(res=>{
-      this.categoryName = res.name_ru;
-      console.log(res)
-      // this.spinnerService.hide();
+      this.categories = res;
+      this.categoryName = res.name;
+    })
+  }
+
+  selectedId(id){
+    this.attrIds.push(id);
+    let settings = "&attr=";
+
+    for(let i of this.attrIds){
+      settings += i + ';';
+    }
+    this.app.search(this.categoryId, settings).subscribe(res => {
+      console.log(res);
     })
   }
 
