@@ -350,6 +350,19 @@ export class AppletService {
 	      	.catch(this.handleError);
 	}
 
+	fulltextSearch(settings): Observable<any>{
+		const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    return this.http
+	      	.get(this.API_URL+'/store/products/search/' + settings, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		const resp = res.json();
+	      		return resp.data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
 
 	checkAuth() {
 	    return window.localStorage.getItem('auth_key') && window.localStorage.getItem('user');
