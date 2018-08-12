@@ -12,7 +12,7 @@ export class ProductComponent implements OnInit {
   id;
   product;
   count = 1;
-  category = [];
+  category;
   basketInfo = false;
 
   constructor(private route: ActivatedRoute,
