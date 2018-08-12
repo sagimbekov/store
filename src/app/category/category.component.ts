@@ -41,7 +41,7 @@ export class CategoryComponent implements OnInit {
       this.categories = res;
       this.categoryName = res.name;
     })
-    this.app.fulltextSearch('?category=' + this.categoryId).subscribe(res => {
+    this.app.fulltextSearch('?c=' + this.categoryId).subscribe(res => {
       this.products = res;
       console.log(res);
     })
@@ -54,7 +54,7 @@ export class CategoryComponent implements OnInit {
     for(let i of this.attrIds){
       settings += i + ';';
     }
-     this.app.fulltextSearch('?category=' + this.categoryId + settings).subscribe(res => {
+     this.app.fulltextSearch('?c=' + this.categoryId + settings).subscribe(res => {
       this.products = res;
       console.log(res);
     })
