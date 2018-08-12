@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.app.getProductById(this.id).subscribe(res=>{
       this.product = res;
-      this.app.getCategoryById(this.product.category).subscribe(res => {
+      this.app.getCategoryById(this.product.category.id).subscribe(res => {
         this.category = res
       })
     })

@@ -17,14 +17,22 @@
 					<h2>{{item.name}}</h2>
 					<ul *ngIf="categories" class="{{item.css}}">
 						<li *ngFor="let item of item.items" class="{{item.css}}">
-							<span>-</span> <a [routerLink]="['' + item.id]" (click)="selectedId(item.id)">{{item.name}}</a>
+							<span>-</span> <a (click)="selectedId(item.id)">{{item.name}}</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div class="products">
-			
+		<div class="category-content">
+			<ul class="row">
+				<li *ngFor="let product of products">
+				 	<div class="box" routerLink="/product/{{product.id}}">
+				 		<img src="assets/img/d.jpg" alt="">
+				 		<h2>{{product.name}}</h2>
+				 		<p class="price">{{product.price}} тг.</p>
+				 	</div>
+				</li>
+			</ul>
 		</div>
 	</div>
 </section>

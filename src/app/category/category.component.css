@@ -71,6 +71,71 @@ li.color-green {
 li.color-blue {
     background: #5d4abd;
 }
+.result{
+    color: #f5363e;
+}
+
+.category-content{
+    margin-top: 19px;
+    padding: 20px;
+    border: 1px solid #f2f2f2;
+    background: #fff;
+    margin-left: 225px;
+    margin-bottom: 20px;
+}
+
+.category-content li{
+        min-height: 365px;
+    padding: 0;
+    padding-bottom: 30px;
+    width: 25%;
+    float: left;
+    clear: none;
+    border: none;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.category-content li:hover .box {
+    box-shadow: 0 0 3px #ccc;
+    bottom: inherit;
+    background: #fff;
+    z-index: 99;
+}
+
+.category-content li:hover .box h2 {
+    height: inherit;
+}
+.box h2 {
+    font-size: 14px;
+    line-height: 16px;
+    height: 30px;
+    min-height: 30px;
+    overflow: hidden;
+}
+
+.box {
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.box img{
+    margin-bottom: 20px;
+}
+
+.price{
+    color: #ff2f39;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+
 
 /*.result{
 	color: #f5363e;

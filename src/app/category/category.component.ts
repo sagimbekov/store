@@ -36,12 +36,14 @@ export class CategoryComponent implements OnInit {
 
   refreshCategory(){
     this.categoryId = this.route.snapshot.params['id'];
-    this.app.getProductListByCategory(this.categoryId).subscribe(res=>{
-      this.products = res;
-    })
+
     this.app.getCategoryById(this.categoryId).subscribe(res=>{
       this.categories = res;
       this.categoryName = res.name;
+    })
+    this.app.fulltextSearch('?category=' + this.categoryId).subscribe(res => {
+      this.products = res;
+      console.log(res);
     })
   }
 
@@ -52,7 +54,8 @@ export class CategoryComponent implements OnInit {
     for(let i of this.attrIds){
       settings += i + ';';
     }
-    this.app.search(this.categoryId, settings).subscribe(res => {
+     this.app.fulltextSearch('?category=' + this.categoryId + settings).subscribe(res => {
+      this.products = res;
       console.log(res);
     })
   }

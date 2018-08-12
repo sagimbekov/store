@@ -27,14 +27,14 @@ export class SearchComponent implements OnInit {
   }
 
 	ngOnInit() {
-    this.refreshCategory();
+   
   }
 
   refreshCategory(){
     this.categoryId = this.route.snapshot.params['id'];
     this.text = this.route.snapshot.params['text'];
-     
-    this.app.searchByCat(this.categoryId, this.text).subscribe(res => {
+    
+    this.app.fulltextSearch('?category=' + this.categoryId + '&text=asd').subscribe(res => {
         this.products = res;
     })
 
