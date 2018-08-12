@@ -10,7 +10,9 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class AppletService {
 
-	API_URL = 'http://139.59.155.219:8000';
+	API_URL = 'https://api.khorex.kz';
+	// API_URL = "http://khorex.kz:8080";
+
 
 	basket = 0;
 	fav = 0;
@@ -327,6 +329,19 @@ export class AppletService {
 	    	headers.append('Content-Type', 'application/json');
 	    return this.http
 	      	.get(this.API_URL+'/store/products/?category=' + id +'&text='+text, 
+	        	{headers: headers})
+	      	.map(res => {
+	      		const resp = res.json();
+	      		return resp.data;
+	      	})
+	      	.catch(this.handleError);
+	}
+
+	search(cat_id,settings): Observable<any>{
+		const headers = new Headers();
+	    	headers.append('Content-Type', 'application/json');
+	    return this.http
+	      	.get(this.API_URL+'/store/products/?category=' + cat_id + settings, 
 	        	{headers: headers})
 	      	.map(res => {
 	      		const resp = res.json();

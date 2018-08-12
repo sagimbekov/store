@@ -1,4 +1,42 @@
-<section class="category">
+<section class="search-page">
+	<div class="breads">
+		<div class="container">
+			<span routerLink="/" style="cursor: pointer;">Главная</span> > {{categoryName}} <span class="result">{{products.length}}</span> результатов
+		</div>
+	</div>
+	<div class="container">
+		<div class="left-nav">
+			<h2>{{categoryName}}</h2>
+			<ul *ngIf="categories">
+				<li *ngFor="let item of categories.childs">
+					<span>-</span> <a [routerLink]="['/category/' + item.id]">{{item.name}}</a>
+				</li>
+			</ul>
+			<div class="attributes-box" *ngIf="categories">
+				<div class="attributes" *ngFor="let item of categories.attributes">
+					<h2>{{item.name}}</h2>
+					<ul *ngIf="categories" class="{{item.css}}">
+						<li *ngFor="let item of item.items" class="{{item.css}}">
+							<span>-</span> <a [routerLink]="['' + item.id]" (click)="selectedId(item.id)">{{item.name}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="products">
+			
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+<!-- <section class="category">
 	<div class="breads">
 		<div class="container">
 			<span routerLink="/" style="cursor: pointer;">Главная</span> > {{categoryName}} <span class="result">{{products.length}}</span> результатов
@@ -7,7 +45,7 @@
 	<div class="container">
 		<div class="left-nav">
 			<ul *ngIf="categories">
-				<li *ngFor="let c of categories" routerLink="/category/{{c.id}}" routerLinkActive="active">{{c.name}}</li>
+				<li *ngFor="let c of categories" routerLink="/category/{{c.id}}" routerLinkActive="active">{{c.name_ru}}</li>
 			</ul>
 		</div>
 		<div class="category-content">
@@ -22,4 +60,4 @@
 			</ul>
 		</div>
 	</div>
-</section>
+</section> -->
