@@ -155,7 +155,7 @@ export class AppletService {
 		const headers = new Headers();
 	    	headers.append('Content-Type', 'application/json');
 	    return this.http
-	      	.get(this.API_URL+'/store/products/?category='+id, 
+	      	.get(this.API_URL+'/store/products/?c='+id, 
 	        	{headers: headers})
 	      	.map(res => {
 	      		return res.json().data;

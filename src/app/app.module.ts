@@ -74,7 +74,7 @@ const appRoutes: Routes = [
       {path: 'orders', component: OrdersComponent},
     ]
   },
-  {path: 'search/:id/:text', component: SearchComponent},
+  {path: 'search', component: SearchComponent},
   {path: 'about', component: AboutComponent},
   {path: 'protection', component: ProtectionComponent},
   {path: 'return', component: ReturnComponent},

@@ -101,8 +101,9 @@
 
 <section class="footer">
   <div class="container">
-    <h1><img src="assets/img/subscribe.png" alt=""> Подпишись на новости</h1>
-    <input type="email" placeholder="Введите ваш действующие Email адрес...">
+    <h1><img src="assets/img/subscribe.png" alt=""> Отследить посылку по номеру</h1>
+    <input type="email" placeholder="Номер отслеживания" [(ngModel)]="orderId">
+    <button [disabled]="!orderId">Отследить посылку</button>
     <hr>
     <img src="assets/img/bottom-info.jpg" alt="">
   </div>

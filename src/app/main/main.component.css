@@ -52,6 +52,8 @@ ul.left-nav {
     line-height: 14px;
     float: left;
     position: relative;
+    width: 280px;
+    min-height: 200px;
 }
 
 ul.left-nav li {
@@ -59,7 +61,6 @@ ul.left-nav li {
     margin-top: -1px;
     color: #3e3e3e;
     font-weight: 500;
-    /*cursor: pointer;*/
     background: #fff;
 }
 
@@ -202,8 +203,11 @@ section.body-c li:hover{
 }
 
 .p-c-products {
-    float: right;
-    width: 67%;
+    /*float: right;
+    width: 67%;*/
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .p-c-products .item {
@@ -212,12 +216,16 @@ section.body-c li:hover{
     text-align: center;
     padding: 20px 30px;
     width: 22%;
-    margin-left: 3%;
-    margin-bottom: 3%;
+    margin-left: 1%;
     cursor: pointer;
-    float: right;
+    float: left;
 }
 
+
+.product-image {
+    width: 225px;
+    height: 225px;
+}
 
 .p-c-products .item p{
     font-size: 16px;

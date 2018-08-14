@@ -52,7 +52,7 @@ export class CategoryComponent implements OnInit {
     let settings = "&attr=";
 
     for(let i of this.attrIds){
-      settings += i + ';';
+      settings += i + ',';
     }
      this.app.fulltextSearch('?c=' + this.categoryId + settings).subscribe(res => {
       this.products = res;

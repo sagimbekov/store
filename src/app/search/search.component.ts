@@ -10,39 +10,56 @@ import {AppletService} from '../services/applet.service';
 export class SearchComponent implements OnInit {
 
   categoryId;
-  text;
-  products;
+  products = [];
   categoryName;
+  categories;
+  attrIds = [];
+  serchedText;
 
-	constructor(private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
             private router: Router,
             public app: AppletService,
             ) {
-      
-    router.events.subscribe( (event: Event) => {
-          if (event instanceof NavigationEnd) {
-             this.refreshCategory();
-          }
+
+      this.route.queryParams.subscribe(params => {
+        this.categoryId = params['c'];
+        this.serchedText = params['text'];
+        this.refreshCategory();
       });
+      
   }
 
-	ngOnInit() {
-   
+  ngOnInit() {
+
   }
 
   refreshCategory(){
-    this.categoryId = this.route.snapshot.params['id'];
-    this.text = this.route.snapshot.params['text'];
-    
-    this.app.fulltextSearch('?category=' + this.categoryId + '&text=asd').subscribe(res => {
-        this.products = res;
-    })
 
     this.app.getCategoryById(this.categoryId).subscribe(res=>{
+      this.categories = res;
       this.categoryName = res.name;
+    })
+    let s = '?c=' + this.categoryId;
+    if(this.serchedText){
+      s += "&text="+this.serchedText;
+    }
+    this.app.fulltextSearch(s).subscribe(res => {
+      this.products = res;
+      console.log(res);
     })
   }
 
-  
+  selectedId(id){
+    this.attrIds.push(id);
+    let settings = "&attr=";
+
+    for(let i of this.attrIds){
+      settings += i + ',';
+    }
+     this.app.fulltextSearch('?c=' + this.categoryId + settings).subscribe(res => {
+      this.products = res;
+      console.log(res);
+    })
+  }
 
 }

@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   categories;
   SelectCat;
   SearchText;
+  orderId;
 
   	constructor(public app: AppletService,
           public router: Router,
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit {
 
     searchByCat(){
       if(this.SearchText){
-       this.router.navigate(['/search/' + this.SelectCat + '/' + this.SearchText]);
+       this.router.navigate(['/search'],{queryParams: {c: this.SelectCat, text: this.SearchText}}  );
       }
     }
 

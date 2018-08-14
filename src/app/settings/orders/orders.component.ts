@@ -19,6 +19,7 @@ export class OrdersComponent implements OnInit {
 			this.orders = res;
 		})
 	}
+
 }
 
 // import {Component, OnInit} from '@angular/core';

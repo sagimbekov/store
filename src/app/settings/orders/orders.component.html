@@ -4,11 +4,20 @@
 			<li *ngFor="let order of orders">
 				<h3 class="d-f">
 					<span style="font-size: 20px;">Заказ <b>№ {{order.id}}</b></span>
-					<span>Статус заказа: <b>{{order.status}}</b></span>
+					<!-- <span> <b>{{getStatus(order.status)}}</b></span> -->
+
+					<div class="order-statuses">
+						<h3>Статус заказа:</h3>
+						<span [class.hightlight]="order.status === 'new'"><b>1</b>В обработке</span>
+						<span [class.hightlight]="order.status === 'processing'"><b>2</b>В дороге</span>
+						<span [class.hightlight]="order.status === 'way'"><b>3</b>На границе</span>
+						<span [class.hightlight]="order.status === 'finished'"><b>4</b>Доставлен</span>
+					</div>
+
 					<span>Дата заказа: <b>{{order.timestamp | date}}</b></span>
 				</h3>
 				<h4>Товары:</h4>
-				<div class="row">
+				<div class="clear">
 					<div class="products" *ngFor="let product of order.products">
 						<div class="product-name"><b>{{product.count}} X </b> <span>{{product.name}}</span></div>
 						<div class="product-price"><b>{{product.price * product.count}} тг.</b></div>

@@ -38,6 +38,27 @@
     font-size: 20px;
 }
 
+.order-statuses {
+    text-align: center;
+}
+
+.order-statuses span {
+    display: inline-block;
+    margin: 0 5px;
+    color: #ccc;
+}
+
+.order-statuses b {
+    display: block;
+    color: inherit!important;
+    font-size: 24px;
+}
+
+.order-statuses span.hightlight {
+    color: #ff2f39;
+}
+
+
 h4{
     font-size: 18px;
     font-weight: 500;

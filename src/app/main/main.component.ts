@@ -10,17 +10,17 @@ import {AppletService} from '../services/applet.service';
 export class MainComponent implements OnInit {
 
  	categories; 
+   cat;
 
 	constructor(private route: ActivatedRoute,
             public app: AppletService) {
   }
 
 	ngOnInit() {
-	  // this.app.getProductListByCategory(3).subscribe(res => {
-   //    this.cat = res.slice(0,8);
-   //  })
+	  this.app.fulltextSearch('?c=1').subscribe(res => {
+      this.cat = res.slice(0,8);
+    })
    this.app.getCategories().subscribe(res => {
-       console.log(res)
       this.categories = res;
    })
 	}
